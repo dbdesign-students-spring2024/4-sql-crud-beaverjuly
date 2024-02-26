@@ -46,7 +46,6 @@ Choosing "Italian" as the genre example:
 SELECT * FROM restaurants
 WHERE Category = 'Italian' AND AverageRating >= 3
 ORDER BY AverageRating DESC;
-
 ```
 3. **Find all restaurants that are open**
 
@@ -54,7 +53,6 @@ ORDER BY AverageRating DESC;
 SELECT * FROM restaurants
 WHERE strftime('%H:%M', 'now', 'localtime') >= OpeningTime
 AND strftime('%H:%M', 'now', 'localtime') <= ClosingTime;
-
 ```
 4. **Leave a review for a restaurant**
 
@@ -75,7 +73,6 @@ WHERE GoodForKids = 0;
 SELECT Neighborhood, COUNT(*) AS NumberOfRestaurants
 FROM restaurants
 GROUP BY Neighborhood;
-
 ```
 # Part 2: Social Media Post
 1. **Create Table**
@@ -111,7 +108,6 @@ CREATE TABLE posts (
 3. **Resgister new user**
 ```sql
 INSERT INTO users (email, password, handle) VALUES ('newuser@example.com', 'password123', 'newuser');
-
 ```
 
 4. **Create new story**
@@ -150,7 +146,6 @@ WHERE type = 'story' AND (JULIANDAY('now') - JULIANDAY(created_at)) * 24 > 24;
 
 ```sql
 SELECT * FROM posts WHERE visibility = 0 ORDER BY created_at DESC;
-
 ```
 
 10. **Show the number of posts by each User:**
