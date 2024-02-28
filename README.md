@@ -79,19 +79,19 @@ GROUP BY Neighborhood;
 ```sql
 CREATE TABLE users (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
-    email TEXT UNIQUE NOT NULL,
-    password TEXT NOT NULL,
-    handle TEXT UNIQUE NOT NULL
+    email TEXT UNIQUE,
+    password TEXT,
+    handle TEXT UNIQUE
 );
 
 CREATE TABLE posts (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
-    user_id INTEGER NOT NULL,
-    content TEXT NOT NULL,
+    user_id INTEGER,
+    content TEXT,
     type TEXT NOT NULL CHECK (type IN ('message', 'story')),
     recipient_id INTEGER,
-    visibility INTEGER NOT NULL CHECK (visibility IN (0, 1)),
-    created_at DATETIME NOT NULL,
+    visibility INTEGER,
+    created_at DATETIME,
     FOREIGN KEY (user_id) REFERENCES users(id),
     FOREIGN KEY (recipient_id) REFERENCES users(id)
 );
